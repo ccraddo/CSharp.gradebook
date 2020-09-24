@@ -3,17 +3,23 @@ using Xunit;
 
 namespace GradeBook.Tests
 {
-    public class UnitTest1
+    public class BookTests
     {
         [Fact]
         public void Test1()
         {
-            var x = 5;
-            var y = 2;
+            // arrange
+            var book = new Book("");
+            book.AddGrade(89.1);
+            book.AddGrade(90.5);
+            book.AddGrade(77.3);
 
-            var expected = x+y;
-            
-            Assert.Equal(9, expected);
+            //act
+            var result = book.GetStatistics();
+
+            // assert
+
+            Assert.Equal(82.6,result.Average);
         }
     }
 }
